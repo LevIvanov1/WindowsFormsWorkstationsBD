@@ -20,6 +20,8 @@
         private System.Windows.Forms.Label lblRight;
         private System.Windows.Forms.Panel headerPanel;
         private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.TextBox txtLog;
+        private System.Windows.Forms.Label lblStats;
 
         protected override void Dispose(bool disposing)
         {
@@ -49,6 +51,8 @@
             this.lblRight = new System.Windows.Forms.Label();
             this.headerPanel = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.lblStats = new System.Windows.Forms.Label();
+            this.txtLog = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLeft)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCenter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRight)).BeginInit();
@@ -302,10 +306,32 @@
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Workstations";
             // 
+            // lblStats
+            // 
+            this.lblStats.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.lblStats.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.lblStats.Location = new System.Drawing.Point(550, 510);
+            this.lblStats.Name = "lblStats";
+            this.lblStats.Size = new System.Drawing.Size(250, 20);
+            this.lblStats.TabIndex = 14;
+            this.lblStats.Text = "Статистика:";
+            // 
+            // txtLog
+            // 
+            this.txtLog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.txtLog.Font = new System.Drawing.Font("Consolas", 8F);
+            this.txtLog.Location = new System.Drawing.Point(20, 580);
+            this.txtLog.Multiline = true;
+            this.txtLog.Name = "txtLog";
+            this.txtLog.ReadOnly = true;
+            this.txtLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtLog.Size = new System.Drawing.Size(780, 244);
+            this.txtLog.TabIndex = 15;
+            // 
             // FormMain
             // 
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(247)))));
-            this.ClientSize = new System.Drawing.Size(820, 590);
+            this.ClientSize = new System.Drawing.Size(820, 836);
             this.Controls.Add(this.dgvLeft);
             this.Controls.Add(this.dgvCenter);
             this.Controls.Add(this.dgvRight);
@@ -320,6 +346,8 @@
             this.Controls.Add(this.btnAddRight);
             this.Controls.Add(this.btnDeleteRight);
             this.Controls.Add(this.headerPanel);
+            this.Controls.Add(this.lblStats);
+            this.Controls.Add(this.txtLog);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -331,6 +359,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvRight)).EndInit();
             this.headerPanel.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
     }

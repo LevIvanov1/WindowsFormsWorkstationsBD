@@ -6,12 +6,17 @@ namespace WindowsFormsWorkstationsBD
 {
     public static class DBHelper
     {
+        public static event Action<string, string> OnQueryExecuted;
+
         private static string connectionString = "Host=localhost;Port=5433;Database=WorkOperatorSoftware;Username=postgres;Password=1234";
 
-        public static DataTable ExecuteQuery(string query)
+        public static DataTable ExecuteQuery(string query, bool log = true)
         {
             try
             {
+                if (log)
+                    OnQueryExecuted?.Invoke(query, "SELECT");
+
                 using (NpgsqlConnection conn = new NpgsqlConnection(connectionString))
                 {
                     conn.Open();
@@ -33,6 +38,8 @@ namespace WindowsFormsWorkstationsBD
         {
             try
             {
+                OnQueryExecuted?.Invoke(query, "ИЗМЕНЕНИЕ");
+
                 using (NpgsqlConnection conn = new NpgsqlConnection(connectionString))
                 {
                     conn.Open();
@@ -49,5 +56,3 @@ namespace WindowsFormsWorkstationsBD
         }
     }
 }
-
-// ПсковГУ ПИШ - Иванов Лев, 0483-05 гр. 2026 год, к курсовой работе
